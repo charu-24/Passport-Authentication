@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express= require('express')
 const expressLayouts = require('express-ejs-layouts')
 const authRoutes = require('./routes/auth')
@@ -13,7 +15,7 @@ const app= express()
 require("./config/passport")(passport)
 
 //DB CONNECTION
-mongoose.connect('mongodb+srv://luckyji:luckyji2424@cluster0-slr5p.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect(process.env.DATABASE, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     
