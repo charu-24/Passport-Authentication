@@ -15,7 +15,7 @@ const app= express()
 require("./config/passport")(passport)
 
 //DB CONNECTION
-mongoose.connect(process.env.DATABASE, {
+mongoose.connect('mongodb+srv://luckyji:luckyji2424@cluster0-slr5p.mongodb.net/test?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     
@@ -60,5 +60,5 @@ app.use('/', userRoutes)
 const port= process.env.PORT || 8000
 
 app.listen(port, (req, res) => {
-    console.log("Server is up and running")
+    console.log("Server is up and running", port)
 })
